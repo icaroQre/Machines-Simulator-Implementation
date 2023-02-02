@@ -4,7 +4,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /* The machines Head */
@@ -16,7 +15,7 @@ public class Reader {
     private String[] finalState;
     private List<String[]> conditions = new ArrayList<String[]>();
 
-    File specs = new File("input.txt");
+    File specs = new File("specs.txt");
 
     /* Variables getters and setters */
     public File getSpecs() {
@@ -64,25 +63,21 @@ public class Reader {
     }
     
 
-    /* Method to verify if the file exists */
-    public void fileExists(Path path){
-
-        if(Files.exists(path)){
-            System.out.println("\n O arquivo existe! :) \n");
-        }else{
-            System.out.println("\n O arquivo não existe! :( \n");
-        }
-
-    }
-
 
     /* Method to read the file and to define variables */
     public void readFile() throws IOException {
 
-        Path pathFileSpecs = Paths.get("C:/Users/icaro/OneDrive/Área de Trabalho/Machines/simulator/input.txt");
-        List<String> lines = Files.readAllLines(pathFileSpecs);
+        Path pathFileSpecs = Paths.get("src/files/specs.txt");
 
-        fileExists(pathFileSpecs);
+        /* verify if the file exists */
+        if(Files.exists(pathFileSpecs)){
+            System.out.println("\n The file specs exists ! :) \n");
+        }else{
+            System.out.println("\n The file specs not exists ! :( \n");
+            return;
+        }
+
+        List<String> lines = Files.readAllLines(pathFileSpecs);
         
         setMachineType(lines.get(0));
         setInitialState(lines.get(1));
@@ -93,11 +88,12 @@ public class Reader {
             conditionsAux.add(lines.get(i).split(","));
         }
         setConditions(conditionsAux);
-
-        System.out.println(getMachineType());
-        System.out.println(getInitialState());
-        System.out.println(Arrays.toString(getFinalState()));
-        getConditions().forEach(element -> System.out.println(Arrays.toString(element)));
             
+    }
+
+    public void writeFile(List<String> message) throws IOException{
+        Path output = Paths.get("src/files/output.txt");
+        Files.write(output, message);
+        System.out.println("\n written output \n");
     }
 }
