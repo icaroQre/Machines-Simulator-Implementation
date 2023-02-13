@@ -21,10 +21,13 @@ Using the programming language Java to manipulate files🍕
   <p>
   To use, write in files of input and specs what you want.
   </p>
+  <p>
+  Ecemples available in "exempleFiles/"
+  </p>
   
   
 ### specs.m
-
+```
 1 X (type of machine [T/P/F])
 2 I (initial state (number))
 3 F1,F2,F3 (final states (number))
@@ -32,19 +35,20 @@ Using the programming language Java to manipulate files🍕
 5 ()
 ...
 N ()
-
+```
 
 ### input.in
-
+```
 1 abababababab
 2 bbbbbbababababa
 3 abababababbaaaaa
 4 abababab
-
+```
 
 ### output.out
-  (S = Accept/Reject)
+```  (S = Accept/Reject)
 1 S;tape
 2 A;bbbbbbababababa
 3 R;abababababbaaaaa
 4 R;abababab
+```
