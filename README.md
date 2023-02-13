@@ -1,5 +1,5 @@
-###Ícaro
-###Oswaldo
+### Ícaro
+### Oswaldo
 
 # Machines Simulator Implementation ⚙️
 
